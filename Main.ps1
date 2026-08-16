@@ -1,0 +1,55 @@
+. "$PSScriptRoot\Common.ps1"
+. "$PSScriptRoot\LLMAdapter.ps1"
+. "$PSScriptRoot\Orchestrator.ps1"
+. "$PSScriptRoot\SystemInfoAgent.ps1"
+. "$PSScriptRoot\HttpAgent.ps1"
+. "$PSScriptRoot\TaskAgent.ps1"
+. "$PSScriptRoot\View.ps1"
+
+# लोड करें .env फ़ाइल एनवायरनमेंट वेरिएबल्स में
+Load-EnvFile
+
+function Execute-AgentWorkflow {
+    param ([string]$UserQuery)
+
+    Write-StructuredLog -Level "INFO" -Message "Processing Query: '$UserQuery'"
+    $state = [ExecutionState]::new($UserQuery)
+
+    # 1. Routing
+    $targetAgent = Resolve-AgentRoute -State $state
+    $state.TargetAgent = $targetAgent
+    Write-StructuredLog -Level "INFO" -Message "[Orchestrator] Routed request to: $targetAgent"
+
+    # 2. Execution Routing
+    $result = $null
+    switch ($targetAgent) {
+        "SystemInfoAgent" { $result = Invoke-SystemInfoAgent -State $state }
+        "HttpAgent"       { $result = Invoke-HttpAgent -State $state }
+        "TaskAgent"       { $result = Invoke-TaskAgent -State $state }
+        default           { Write-StructuredLog -Level "ERROR" -Message "Unknown Agent requested: $targetAgent" }
+    }
+
+    # 3. State & Logging Persistence
+    if ($result) {
+        $state.History += @{
+            Agent  = $result.AgentName
+            Status = $result.Success
+            Time   = (Get-Date).ToString("o")
+        }
+        $state.SaveState($PSScriptRoot)
+        
+        if ($result.Success) {
+            $formattedJson = $result.Data | ConvertTo-Json -Depth 5
+            return @{
+                Agent    = $result.AgentName
+                DataJson = $formattedJson
+            }
+        } else {
+            Write-StructuredLog -Level "ERROR" -Message "Agent Execution Failed: $($result.ErrorMessage)"
+            return $null
+        }
+    }
+}
+
+# Start Platform UI
+Start-InteractiveSession

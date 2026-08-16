@@ -1,0 +1,30 @@
+. "$PSScriptRoot\Common.ps1"
+. "$PSScriptRoot\LLMAdapter.ps1"
+
+function Resolve-AgentRoute {
+    param ([ExecutionState]$State)
+
+    $routingPrompt = @"
+Categorize the following user request into EXACTLY ONE of these agent names: [SystemInfoAgent, TaskAgent, HttpAgent].
+User Request: '$($State.UserQuery)'
+Respond ONLY with the exact agent name from the list.
+"@
+
+    $llmResult = Invoke-LLMProvider -Prompt $routingPrompt -Provider "KodeKloud"
+    
+    if ([string]::IsNullOrWhiteSpace($llmResult)) {
+        Write-StructuredLog -Level "WARN" -Message "[Orchestrator] Empty LLM response. Using keyword matching..."
+        
+        if ($State.UserQuery -match "http|api|url|web|fetch") { return "HttpAgent" }
+        elseif ($State.UserQuery -match "file|task|dir|folder|create") { return "TaskAgent" }
+        else { return "SystemInfoAgent" }
+    }
+
+    $selectedAgent = $llmResult.Trim()
+    
+    switch -Regex ($selectedAgent) {
+        "Http"       { return "HttpAgent" }
+        "Task"       { return "TaskAgent" }
+        default      { return "SystemInfoAgent" }
+    }
+}

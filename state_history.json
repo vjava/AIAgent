@@ -1,0 +1,90 @@
+{
+    "SessionId":  "9ed409b1-80a2-4f88-a97a-ffcf9358a089",
+    "UserQuery":  "Create a new task file in workspace",
+    "TargetAgent":  "TaskAgent",
+    "History":  [
+                    {
+                        "Time":  "2026-08-16T18:49:40.5624238+05:30",
+                        "Agent":  "TaskAgent",
+                        "Status":  true
+                    }
+                ],
+    "Context":  {
+
+                }
+}
+{
+    "SessionId":  "72759f33-fb8a-4c2c-9519-d403cc43a9cf",
+    "UserQuery":  "check my pc memory",
+    "TargetAgent":  "SystemInfoAgent",
+    "History":  [
+                    {
+                        "Time":  "2026-08-16T19:00:19.4876656+05:30",
+                        "Agent":  "SystemInfoAgent",
+                        "Status":  true
+                    }
+                ],
+    "Context":  {
+
+                }
+}
+{
+    "SessionId":  "c35b0673-afc6-45bd-84b7-0ea50951d066",
+    "UserQuery":  "check my pc memory",
+    "TargetAgent":  "SystemInfoAgent",
+    "History":  [
+                    {
+                        "Time":  "2026-08-16T19:02:07.9276955+05:30",
+                        "Agent":  "SystemInfoAgent",
+                        "Status":  true
+                    }
+                ],
+    "Context":  {
+
+                }
+}
+{
+    "SessionId":  "ff101550-1a40-4d97-8850-a803dda1d383",
+    "UserQuery":  "create workspace files",
+    "TargetAgent":  "TaskAgent",
+    "History":  [
+                    {
+                        "Time":  "2026-08-16T19:02:19.6921181+05:30",
+                        "Agent":  "TaskAgent",
+                        "Status":  true
+                    }
+                ],
+    "Context":  {
+
+                }
+}
+{
+    "SessionId":  "a1dac221-a2e7-4a39-a12d-8981c6710bde",
+    "UserQuery":  "create workspace files",
+    "TargetAgent":  "TaskAgent",
+    "History":  [
+                    {
+                        "Time":  "2026-08-16T19:02:39.5440083+05:30",
+                        "Agent":  "TaskAgent",
+                        "Status":  true
+                    }
+                ],
+    "Context":  {
+
+                }
+}
+{
+    "SessionId":  "74229bb0-7d68-43f0-8545-b1ff308d56fb",
+    "UserQuery":  "fetch web api details",
+    "TargetAgent":  "HttpAgent",
+    "History":  [
+                    {
+                        "Time":  "2026-08-16T19:02:53.6186954+05:30",
+                        "Agent":  "HttpAgent",
+                        "Status":  true
+                    }
+                ],
+    "Context":  {
+
+                }
+}

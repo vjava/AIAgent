@@ -1,0 +1,27 @@
+{"Message":"=== Initializing PowerShell Multi-Agent Platform ===","Timestamp":"2026-08-16 18:48:58","Level":"INFO"}
+{"Message":"[Orchestrator] Routed request to: TaskAgent","Timestamp":"2026-08-16 18:49:00","Level":"INFO"}
+{"Message":"=== Initializing PowerShell Multi-Agent Platform ===","Timestamp":"2026-08-16 18:49:39","Level":"INFO"}
+{"Message":"[Orchestrator] Routed request to: TaskAgent","Timestamp":"2026-08-16 18:49:40","Level":"INFO"}
+{"Message":"[TaskAgent] Executing File Management Task...","Timestamp":"2026-08-16 18:49:40","Level":"INFO"}
+{"Message":"=== Execution Completed Successfully ===","Timestamp":"2026-08-16 18:49:40","Level":"INFO"}
+{"Message":"Processing Query: \u0027get system information\u0027","Timestamp":"2026-08-16 18:51:38","Level":"INFO"}
+{"Message":"[Orchestrator] Routed request to: SystemInfoAgent","Timestamp":"2026-08-16 18:51:41","Level":"INFO"}
+{"Message":"Processing Query: \u0027check my pc memory\u0027","Timestamp":"2026-08-16 18:52:07","Level":"INFO"}
+{"Message":"[Orchestrator] Routed request to: SystemInfoAgent","Timestamp":"2026-08-16 18:52:09","Level":"INFO"}
+{"Message":"Environment variables loaded from .env","Timestamp":"2026-08-16 18:59:53","Level":"INFO"}
+{"Message":"Processing Query: \u0027check my pc memory\u0027","Timestamp":"2026-08-16 19:00:18","Level":"INFO"}
+{"Message":"[Orchestrator] Routed request to: SystemInfoAgent","Timestamp":"2026-08-16 19:00:19","Level":"INFO"}
+{"Message":"[SystemInfoAgent] Collecting machine diagnostics...","Timestamp":"2026-08-16 19:00:19","Level":"INFO"}
+{"Message":"Environment variables loaded from .env","Timestamp":"2026-08-16 19:01:27","Level":"INFO"}
+{"Message":"Processing Query: \u0027check my pc memory\u0027","Timestamp":"2026-08-16 19:02:06","Level":"INFO"}
+{"Message":"[Orchestrator] Routed request to: SystemInfoAgent","Timestamp":"2026-08-16 19:02:07","Level":"INFO"}
+{"Message":"[SystemInfoAgent] Collecting machine diagnostics...","Timestamp":"2026-08-16 19:02:07","Level":"INFO"}
+{"Message":"Processing Query: \u0027create workspace files\u0027","Timestamp":"2026-08-16 19:02:17","Level":"INFO"}
+{"Message":"[Orchestrator] Routed request to: TaskAgent","Timestamp":"2026-08-16 19:02:19","Level":"INFO"}
+{"Message":"[TaskAgent] Executing File Management Task...","Timestamp":"2026-08-16 19:02:19","Level":"INFO"}
+{"Message":"Processing Query: \u0027create workspace files\u0027","Timestamp":"2026-08-16 19:02:39","Level":"INFO"}
+{"Message":"[Orchestrator] Routed request to: TaskAgent","Timestamp":"2026-08-16 19:02:39","Level":"INFO"}
+{"Message":"[TaskAgent] Executing File Management Task...","Timestamp":"2026-08-16 19:02:39","Level":"INFO"}
+{"Message":"Processing Query: \u0027fetch web api details\u0027","Timestamp":"2026-08-16 19:02:51","Level":"INFO"}
+{"Message":"[Orchestrator] Routed request to: HttpAgent","Timestamp":"2026-08-16 19:02:53","Level":"INFO"}
+{"Message":"[HttpAgent] Processing HTTP/Web Request...","Timestamp":"2026-08-16 19:02:53","Level":"INFO"}
